@@ -34,7 +34,12 @@ namespace NoteKeeper.Views
         {
             var pluralsightDataStore = new MockPluralsightDataStore();
             CourseList = await pluralsightDataStore.GetCoursesAsync();
-            Note = new Note { Heading="Test Note", Text="Text for test note"};
+            Note = new Note
+            {
+                Heading = "Test Note",
+                Text = "Text for test note",
+                Course = CourseList[0]
+            };
         }
         public void Cancel_Clicked(object sender, EventArgs eventArgs)
         {

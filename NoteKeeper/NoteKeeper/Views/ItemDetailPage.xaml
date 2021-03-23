@@ -12,12 +12,15 @@
         <!--//<Label Text="Course:" FontSize="Medium" />-->
         <Picker 
             ItemsSource="{Binding CourseList}"
+            SelectedItem="{Binding Note.Course}"    
             x:Name="NoteCourse" 
             Title="Note Course" 
             FontSize="Medium">
-            
-            
         </Picker>
+        <!---For SelectedItem property,
+        This is because the picker issupposed to bind to another thing,the courselist, 
+        which is separate from the Note like in Heading or Text below-->
+
 
         <!--//<Label Text="Heading:" FontSize="Medium"/>-->
         <Entry Text="{Binding Heading}"

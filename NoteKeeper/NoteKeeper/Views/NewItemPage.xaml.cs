@@ -11,7 +11,7 @@ namespace NoteKeeper.Views
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Note Note { get; set; }
         public IList<String> CourseList { get; set; }
         public NewItemPage()
         {
@@ -24,6 +24,11 @@ namespace NoteKeeper.Views
         {
             var pluralsightDataStore = new MockPluralsightDataStore();
             CourseList = await pluralsightDataStore.GetCoursesAsync();
+            Note = new Note
+            {
+                Course = CourseList[0]
+            };
+            
         }
     }
 }
