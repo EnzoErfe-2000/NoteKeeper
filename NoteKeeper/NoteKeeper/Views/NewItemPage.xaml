@@ -8,14 +8,12 @@
              ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Spacing="3" Padding="15">
-            <Picker x:Name="NoteCourse" Title="Note Course" FontSize="Medium">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Course 1</x:String>
-                        <x:String>Course 2</x:String>
-                        <x:String>Course 3</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
+            <Picker 
+                ItemsSource="{Binding CourseList}"
+                SelectedItem="{Binding Note.Course}"
+                x:Name="NoteCourse" 
+                Title="Note Course" 
+                FontSize="Medium">
             </Picker>
             <!--<Label Text="Text" FontSize="Medium" />-->
             <Entry Text="{Binding Text, Mode=TwoWay}" Placeholder="Note Header" FontSize="Medium" />

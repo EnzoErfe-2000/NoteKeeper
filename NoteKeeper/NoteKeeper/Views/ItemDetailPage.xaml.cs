@@ -1,6 +1,8 @@
 ﻿using NoteKeeper.Models;
+using NoteKeeper.Services;
 using NoteKeeper.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,12 +13,13 @@ namespace NoteKeeper.Views
     {
         ItemDetailViewModel viewModel;
         public Note Note { get; set; }
-
+        public IList<String> CourseList { get; set; }
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
             InitializeData();
             BindingContext = Note;
+            NoteCourse.BindingContext = this;
         }
         public ItemDetailPage()
         {
@@ -25,10 +28,18 @@ namespace NoteKeeper.Views
             InitializeData();
             //BindingContext = new ItemDetailViewModel();
             BindingContext = Note;
+            NoteCourse.BindingContext = this;
         }
-        void InitializeData()
+        async void InitializeData()
         {
-            Note = new Note { Heading="Test Note", Text="Text for test note"};
+            var pluralsightDataStore = new MockPluralsightDataStore();
+            CourseList = await pluralsightDataStore.GetCoursesAsync();
+            Note = new Note
+            {
+                Heading = "Test Note",
+                Text = "Text for test note",
+                Course = CourseList[0]
+            };
         }
         public void Cancel_Clicked(object sender, EventArgs eventArgs)
         {

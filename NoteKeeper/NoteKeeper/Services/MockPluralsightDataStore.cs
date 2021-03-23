@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using NoteKeeperPrep2.Models;
+using NoteKeeper.Models;
 
 namespace NoteKeeper.Services
 {
