@@ -12,7 +12,7 @@
         <!--//<Label Text="Course:" FontSize="Medium" />-->
         <Picker 
             ItemsSource="{Binding CourseList}"
-            SelectedItem="{Binding Note.Course}"    
+            SelectedItem="{Binding NoteCourse}"    
             x:Name="NoteCourse" 
             Title="Note Course" 
             FontSize="Medium">
@@ -23,12 +23,12 @@
 
 
         <!--//<Label Text="Heading:" FontSize="Medium"/>-->
-        <Entry Text="{Binding Heading}"
+        <Entry Text="{Binding NoteHeading}"
         x:Name="NoteHeading" 
             Placeholder="Note heading" 
             FontSize="Medium" />
         <!--<Label Text="Text:" FontSize="Medium" />-->
-        <Editor Text="{Binding Text}" 
+        <Editor Text="{Binding NoteText}" 
             x:Name="NoteText" 
             AutoSize="TextChanges" 
             Placeholder="Note Text" 

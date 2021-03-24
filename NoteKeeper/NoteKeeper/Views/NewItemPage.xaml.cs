@@ -17,7 +17,7 @@ namespace NoteKeeper.Views
         {
             InitializeComponent();
             InitializeData();
-            BindingContext = new NewItemViewModel();
+            //BindingContext = new NewItemViewModel();
             NoteCourse.BindingContext = this;
         }
         async void InitializeData()

@@ -11,6 +11,12 @@ namespace NoteKeeper.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IPluralsightDataStore PluralsightDataStore =>
+            DependencyService.Get<IPluralsightDataStore>() ?? new MockPluralsightDataStore();
+
+        //First check the dependency service for IPluralsightDataStore for a platform registered. If yes, get a reference to that implementation. If not, return null and make new instance of MockPluralDatastore
+
+        //bit.ly/xfdependencyservice
 
         bool isBusy = false;
         public bool IsBusy
