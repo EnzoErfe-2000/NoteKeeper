@@ -12,7 +12,7 @@ namespace NoteKeeper.ViewModels
     {
         public Note Note { get; set; }
         public IList<String>CourseList { get; set; }
-
+        public bool IsNewNote { get; set; }
         public String NoteHeading
         {
             get { return Note.Heading; }

@@ -41,6 +41,8 @@ namespace NoteKeeper.Views
 
         public void Save_Clicked(object sender, EventArgs eventArgs)
         {
+            var message = viewModel.IsNewNote ? "SaveNote" : "UpdateNote";
+            MessagingCenter.Send(this, message, viewModel.Note);
             Navigation.PopModalAsync();
             /*
             DisplayAlert("Save option", "Save was clicked", "Button 2", "Button 1");
