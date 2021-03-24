@@ -31,15 +31,22 @@ namespace NoteKeeper.Views
         
         public void Cancel_Clicked(object sender, EventArgs eventArgs)
         {
-            viewModel.NoteHeading = "XXXXXXXXXXXX";
+            Navigation.PopModalAsync();
+            /*viewModel.NoteHeading = "XXXXXXXXXXXX";
             DisplayAlert("Cancel option", 
                 "Heading value is " + viewModel.Note.Heading, 
                 "Button 2", "Button 1");
+            */
         }
 
         public void Save_Clicked(object sender, EventArgs eventArgs)
         {
+            var message = viewModel.IsNewNote ? "SaveNote" : "UpdateNote";
+            MessagingCenter.Send(this, message, viewModel.Note);
+            Navigation.PopModalAsync();
+            /*
             DisplayAlert("Save option", "Save was clicked", "Button 2", "Button 1");
+            */
         }
     }
 }

@@ -12,7 +12,7 @@ namespace NoteKeeper.ViewModels
     {
         public Note Note { get; set; }
         public IList<String>CourseList { get; set; }
-
+        public bool IsNewNote { get; set; }
         public String NoteHeading
         {
             get { return Note.Heading; }
@@ -46,16 +46,12 @@ namespace NoteKeeper.ViewModels
 
         }
 
-        public ItemDetailViewModel(Item item = null)
+        public ItemDetailViewModel(Note note = null)
         {
-            Title = item?.Text;
+            Title = "Edit Note";
             InitializeCourseList();
-            Note = new Note 
-            {   
-                Heading = "Test note", 
-                Text = "Text for note in ViewModel", 
-                Course = CourseList[0] 
-            };
+            Note = note ?? new Note();
+            
         }
 
         async void InitializeCourseList()
